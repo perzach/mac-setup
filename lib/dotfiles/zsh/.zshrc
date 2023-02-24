@@ -1,5 +1,5 @@
 export PATH=${HOME}/bin:/opt/homebrew/bin:${PATH}
-eval $(shellclear --init-shell)
+# eval $(shellclear --init-shell)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

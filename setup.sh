@@ -16,28 +16,6 @@ xcode_developer_tools(){
 	pause
 }
 
-verify_ssh_key(){
-	path="$HOME/.ssh/id_ed25519.pub"
-	step "Verifying ssh key in path: $path"
-	if [ ! -f "$path" ]; then
-		step "Generating SSH key"
-		ssh-keygen -t ed25519 -f "$HOME/.ssh/id_ed25519"
-		cat ~/.ssh/id_ed25519.pub | pbcopy
-        step "Copied public key, paste it to GitHub"
-        open https://github.com/settings/keys
-        pause
-	else
-		step "ssh key already exists"
-		step "skipping..."
-	fi
-	step "Adding the SSH key to the agent now to avoid multiple prompts"
-	if ! ssh-add -L -q > /dev/null ; then
-		ssh-add
-	fi
-
-	finish
-}
-
 homebrew(){
 	step "Checking Homebrew"
 	if [[ ! -f "/opt/homebrew/bin/brew" ]]
@@ -70,7 +48,7 @@ setup_homebrew_github_token(){
 		pause
 		
 		open "https://github.com/settings/tokens/new?description=homebrew&scopes=repo" # creates token with correct permissions
-		read -rs "gh_token?${YELLOW}Enter token:${RESET} "
+		read -rs "gh_token?${YELLOW}Enter token:${RESET} " # TODO: Does not work
 		
 		mkdir -p ~/.zsh
 		echo "export HOMEBREW_GITHUB_API_TOKEN=${gh_token}" >> ~/.zsh/.zshrc.user
@@ -191,17 +169,47 @@ dotfiles(){
 	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/zsh/.zshrc ~/.zsh/.zshrc
 	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/zsh/.zshenv ~/.zsh/.zshenv
 
-	step "Setting up git email"
-	if [ -z "$(git config user.email)" ]; then
-	printf "Insert git email: "
-	read git_email
-	git config --global user.email "${git_email}"
-	fi
-
 	step "Remove backups with 'rm -ir $MAC_SETUP_DIR/backup.*.old'"
 
 	finish
 }
+
+
+configure_github(){
+	step "Configuring github"
+
+	step "Setting up git email"
+	if [ -z "$(git config user.email)" ]; then
+		printf "Insert git email: "
+		read git_email
+		git config --global user.email "${git_email}"
+	fi
+
+	step "Verifying ssh key in path: $path"
+	path="$HOME/.ssh/id_ecdsa_github.pub"
+	if [ ! -f "$path" ]; then
+		step "Generating SSH key for github"
+
+		printf "Insert identifier for ssh key: "
+		read ssh_identifier
+		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/id_ecdsa_github -C "${ssh_identifier}"
+		cat ~/.ssh/id_ecdsa_github.pub | pbcopy
+        step "Copied public key, paste it to GitHub"
+        open https://github.com/settings/keys
+        pause
+	else
+		step "ssh key already exists"
+		step "skipping..."
+	fi
+	step "Adding the SSH key to the agent now to avoid multiple prompts"
+	if ! ssh-add -L -q > /dev/null ; then
+		ssh-add
+		ssh -T git@github.com
+	fi
+
+	finish
+}
+
 
 set_zsh_profile(){
     step "Set zsh profile"
@@ -223,9 +231,6 @@ setup_nvm() {
 	mkdir -p ~/.nvm
 	export NVM_DIR=~/.nvm
 	source $(brew --prefix nvm)/nvm.sh
-	nvm install 8
-	nvm install 12
-	nvm install 14
 	nvm install 16
 	nvm use 16
 
@@ -308,16 +313,20 @@ setup_tfenv() {
 
 
 xcode_developer_tools
-verify_ssh_key
 homebrew
-setup_homebrew_github_token
+#setup_homebrew_github_token # Not working at the moment
 brew_bundle
 install_non_brew_default_tools
 install_zsh
 #config_macos ## TODO: Go over these
 install_zsh_plugins
 dotfiles
+configure_github
 set_zsh_profile
 setup_nvm
 setup_jenv
 setup_tfenv
+zsh
+
+# TODO: Install fonts
+# TODO: Use fonts in VS Code terminal as well
