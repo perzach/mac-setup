@@ -16,8 +16,8 @@ function step {
 
 function finish {
   echo 
-  echo 
   echo "✅  ${WHITE}${BOLD}Done!${NC} 🎉"
+  echo 
 }
 
 function title {
