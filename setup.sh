@@ -154,6 +154,12 @@ install_zsh_plugins(){
 	finish
 }
 
+install_fonts() {
+	step "Installing fonts"
+	cp "${MAC_SETUP_DIR}/fonts/"*.ttf ~/Library/Fonts/
+	finish
+}
+
 dotfiles(){
 	step "Backing up existing dot files"
 	mkdir -p $MAC_SETUP_DIR/backup
@@ -284,10 +290,19 @@ setup_tfenv() {
 	finish
 }
 
-install_fonts() {
-	step "Installing fonts"
-	cp "${MAC_SETUP_DIR}/fonts/"*.ttf ~/Library/Fonts/
-	finish
+
+setup_visual_studio() {
+	local settingsFile="$HOME/Library/Application Support/Code/User/settings.json"
+	
+	# File does not exist or is empty
+	if [[ ! -s ${settingsFile} ]]; then 
+		
+		echo "{}" > ${settingsFile}
+		chmod 644 ${settingsFile}
+	fi
+
+	local tmpSetting=$( jq '.["terminal.integrated.fontFamily"] = "MesloLGS NF"' ${settingsFile})
+	echo ${tmpSetting} > ${settingsFile}
 }
 
 # function _configure-terraform-if-needed() {
@@ -326,13 +341,14 @@ install_non_brew_default_tools
 install_zsh
 #config_macos ## TODO: Go over these
 install_zsh_plugins
+install_fonts
 dotfiles
 configure_github
 #set_zsh_profile
 setup_nvm
 setup_jenv
 setup_tfenv
-install_fonts
+setup_visual_studio
 zsh
 
 # TODO: Install fonts
