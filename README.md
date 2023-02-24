@@ -4,7 +4,7 @@
 Run:
 
 ```
-git clone git@github.com:Perzach/mac-setup.git ~/workspace/mac-setup
+git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 ~/workspace/mac-setup/setup.sh
 ```
 
