@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MAC_SETUP_DIR="$HOME/projects/mac-setup"
+MAC_SETUP_DIR="$HOME/workspace/mac-setup"
 source $MAC_SETUP_DIR/lib/print.sh
 
 pause(){
