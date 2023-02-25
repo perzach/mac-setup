@@ -197,14 +197,14 @@ configure_github(){
 	fi
 
 	step "Verifying ssh key in path: $path"
-	path="$HOME/.ssh/id_ecdsa_github.pub"
+	path="$HOME/.ssh/id_ecdsa.pub"
 	if [ ! -f "$path" ]; then
 		step "Generating SSH key for github"
 
 		printf "Insert identifier for ssh key: "
 		read ssh_identifier
-		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/id_ecdsa_github -C "${ssh_identifier}"
-		cat ~/.ssh/id_ecdsa_github.pub | pbcopy
+		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/id_ecdsa
+		cat ~/.ssh/id_ecdsa.pub | pbcopy
         step "Copied public key, paste it to GitHub"
         open https://github.com/settings/keys
         pause
