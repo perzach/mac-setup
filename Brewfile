@@ -1,5 +1,5 @@
 tap "homebrew/cask-drivers"
-# tap "rusty-ferris-club/tap"
+tap "rusty-ferris-club/tap"
 tap "sergiomss/homebrew-tap"
 
 brew "zsh"
@@ -34,7 +34,7 @@ brew "k9s"
 brew "kubectl"
 brew "mas"
 
-# brew "rusty-ferris-club/tap/shellclear"
+brew "rusty-ferris-club/tap/shellclear"
 brew "sergiomss/tap/ks"
 
 # Casks
