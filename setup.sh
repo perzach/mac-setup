@@ -280,7 +280,7 @@ brew_bundle
 install_global_npm_tools
 install_app_store_tools
 install_zsh
-#config_macos ## TODO: Go over these
+config_macos
 install_zsh_plugins
 install_fonts
 dotfiles
