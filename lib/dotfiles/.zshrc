@@ -143,16 +143,16 @@ alias java11="jenv global corretto64-11.0.17"
 ##
 # Extra Settings
 ##
-[[ -f $ZDOTDIR/.zshrc.user ]] && source $ZDOTDIR/.zshrc.user
-[[ -f $ZDOTDIR/.zshlocal ]] && source $ZDOTDIR/.zshlocal
-[[ -f $ZDOTDIR/.zshenv ]] && source $ZDOTDIR/.zshenv
+[[ -f ~/.zshrc.user ]] && source ~/.zshrc.user
+[[ -f ~/.zshlocal ]] && source ~/.zshlocal
+[[ -f ~/.zshenv ]] && source ~/.zshenv
 
 # Load fzf customizations if they exist
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 ###source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Source oh-my-zsh.sh must be run after the PATH is fully set up
 source $ZSH/oh-my-zsh.sh

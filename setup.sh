@@ -41,12 +41,12 @@ setup_homebrew_github_token(){
 		pause
 		
 		open "https://github.com/settings/tokens/new?description=homebrew&scopes=repo" # creates token with correct permissions
-		read -rs "gh_token?${YELLOW}Enter token:${RESET} " # TODO: Does not work
+		message "Enter github token, then press <ENTER>: "
+		read -s gh_token
 		
-		mkdir -p ~/.zsh
-		echo "export HOMEBREW_GITHUB_API_TOKEN=${gh_token}" >> ~/.zsh/.zshrc.user
+		echo "export HOMEBREW_GITHUB_API_TOKEN=${gh_token}" >> ~/.zshrc.user
 		# Make sure .zshrc.user is only user readable
-		chmod 600 ~/.zsh/.zshrc.user
+		chmod 600 ~/.zshrc.user
 		export HOMEBREW_GITHUB_API_TOKEN=${gh_token}
 	fi
 
@@ -157,16 +157,15 @@ dotfiles(){
 	step "Backing up existing dot files"
 	mkdir -p $MAC_SETUP_DIR/backup
 	cp -ivL ~/.gitconfig $MAC_SETUP_DIR/backup/.gitconfig.old
-	cp -ivL ~/.zsh/.p10k.zsh $MAC_SETUP_DIR/backup/.p10k.zsh.old
-	cp -ivL ~/.zsh/.zshrc $MAC_SETUP_DIR/backup/.zshrc.old
-	cp -ivL ~/.zsh/.zshenv $MAC_SETUP_DIR/backup/.zshenv.old
+	cp -ivL ~/.p10k.zsh $MAC_SETUP_DIR/backup/.p10k.zsh.old
+	cp -ivL ~/.zshrc $MAC_SETUP_DIR/backup/.zshrc.old
+	cp -ivL ~/.zshlocal $MAC_SETUP_DIR/backup/.zshlocal.old
 
 	step "Adding symlinks to dot files"
 	cp -ivL $MAC_SETUP_DIR/lib/dotfiles/.gitconfig ~/.gitconfig
-	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshenv ~/.zshenv
-	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/zsh/.p10k.zsh ~/.zsh/.p10k.zsh
-	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/zsh/.zshrc ~/.zsh/.zshrc
-	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/zsh/.zshenv ~/.zsh/.zshenv
+	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.p10k.zsh ~/.p10k.zsh
+	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshrc ~/.zshrc
+	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshlocal ~/.zshlocal
 
 	step "Remove backups with 'rm -ir $MAC_SETUP_DIR/backup.*.old'"
 
@@ -309,7 +308,7 @@ setup_tfenv() {
 
 
 homebrew
-#setup_homebrew_github_token # Not working at the moment
+setup_homebrew_github_token
 brew_bundle
 install_non_brew_default_tools
 install_zsh
