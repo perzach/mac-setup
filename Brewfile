@@ -32,6 +32,7 @@ brew "wget"
 brew "tree"
 brew "k9s"
 brew "kubectl"
+brew "mas"
 
 # brew "rusty-ferris-club/tap/shellclear"
 brew "sergiomss/tap/ks"

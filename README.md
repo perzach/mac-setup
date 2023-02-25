@@ -19,4 +19,3 @@ git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 
 ## Checklist afterwards
 - Login to Apps (AppleId, Chrome, Spotify, VS Code)
-- Install mandatory tools from AppStore (PasteBot, Caffeinated, etc)

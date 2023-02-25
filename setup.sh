@@ -71,11 +71,24 @@ brew_bundle(){
 	finish
 }
 
-install_non_brew_default_tools() {
+install_global_npm_tools() {
     step "Installing non-brew default tools"
     
 	step "Installing kinesis-console-consumer"
 	npm install -g kinesis-console-consumer
+
+	finish
+}
+
+install_app_store_tools() {
+	step "Installing AppStore tools"
+	message "You may be asked to login with your AppleId"
+
+	step "Installing Caffeinated"
+	mas install 1362171212
+
+	step "Installing PasteBot"
+	mas install 1179623856
 
 	finish
 }
@@ -264,7 +277,8 @@ setup_tfenv() {
 homebrew
 setup_homebrew_github_token
 brew_bundle
-install_non_brew_default_tools
+install_global_npm_tools
+install_app_store_tools
 install_zsh
 #config_macos ## TODO: Go over these
 install_zsh_plugins
