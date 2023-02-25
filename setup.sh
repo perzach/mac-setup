@@ -9,13 +9,6 @@ pause(){
 	echo
 }
 
-xcode_developer_tools(){
-	step "Installing Xcode developer tools, please accept the popup prompt"
-	xcode-select --install
-	step "Wait for the download to finish"
-	pause
-}
-
 homebrew(){
 	step "Checking Homebrew"
 	if [[ ! -f "/opt/homebrew/bin/brew" ]]
@@ -333,7 +326,6 @@ setup_visual_studio() {
 # }
 
 
-xcode_developer_tools
 homebrew
 #setup_homebrew_github_token # Not working at the moment
 brew_bundle
@@ -350,6 +342,3 @@ setup_jenv
 setup_tfenv
 setup_visual_studio
 zsh
-
-# TODO: Install fonts
-# TODO: Use fonts in VS Code terminal as well
