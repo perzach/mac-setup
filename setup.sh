@@ -284,20 +284,6 @@ setup_tfenv() {
 }
 
 
-setup_visual_studio() {
-	local settingsFile="$HOME/Library/Application\ Support/Code/User/settings.json"
-	
-	# File does not exist or is empty
-	if [[ ! -s ${settingsFile} ]]; then 
-		
-		echo "{}" > ${settingsFile}
-		chmod 644 ${settingsFile}
-	fi
-
-	local tmpSetting=$( jq '.["terminal.integrated.fontFamily"] = "MesloLGS NF"' ${settingsFile})
-	echo ${tmpSetting} > ${settingsFile}
-}
-
 # function _configure-terraform-if-needed() {
 #     [[ ! -f "~/.terraformrc" ]] && printf 'plugin_cache_dir   = "$HOME/.terraform.d/plugin-cache"\ndisable_checkpoint = true\n' > ~/.terraformrc && mkdir -p $HOME/.terraform.d/plugin-cache
 #     if [[ "$CPU_ARCH" == "arm" ]]; then
@@ -340,5 +326,4 @@ configure_github
 setup_nvm
 setup_jenv
 setup_tfenv
-setup_visual_studio
 zsh
