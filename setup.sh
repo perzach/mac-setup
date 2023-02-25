@@ -256,56 +256,10 @@ setup_tfenv() {
   
 	tfenv install 1.1.4
 	tfenv install 1.0.11
-
-	# if [[ "$CPU_ARCH" == "arm" ]]; then
-	# 	_fetch_custom_binaries
-	# 	python3 -m http.server 47285 --directory $CUSTOM_BINARIES_FOLDER &
-	# 	local http_server_pid=$!
-	# 	echo "http_server_pid : ${http_server_pid}"
-	# 	TFENV_ARCH=arm64 TFENV_REMOTE=http://localhost:47285 tfenv install 0.15.5
-	# 	TFENV_ARCH=arm64 TFENV_REMOTE=http://localhost:47285 tfenv install 0.14.11
-	# 	TFENV_ARCH=arm64 TFENV_REMOTE=http://localhost:47285 tfenv install 0.13.7
-	# 	kill -s SIGINT ${http_server_pid}
-	# else 
-	# 	tfenv install 0.15.5
-	# 	tfenv install 0.14.11
-	# 	tfenv install 0.13.7
-	# fi
-	# _configure-terraform-if-needed
-	
 	tfenv use 1.1.4
 
 	finish
 }
-
-
-# function _configure-terraform-if-needed() {
-#     [[ ! -f "~/.terraformrc" ]] && printf 'plugin_cache_dir   = "$HOME/.terraform.d/plugin-cache"\ndisable_checkpoint = true\n' > ~/.terraformrc && mkdir -p $HOME/.terraform.d/plugin-cache
-#     if [[ "$CPU_ARCH" == "arm" ]]; then
-#       _fetch_custom_binaries
-#       # install locally template module
-#       mkdir -p ~/.terraform.d/plugins/registry.terraform.io/hashicorp/template/2.2.0/darwin_arm64/terraform-provider-template
-#       cp $CUSTOM_BINARIES_FOLDER/terraform-providers/terraform-provider-template/2.2.0/terraform-provider-template_v2.2.0_x5 \
-#           ~/.terraform.d/plugins/registry.terraform.io/hashicorp/template/2.2.0/darwin_arm64/
-#       chmod +x ~/.terraform.d/plugins/registry.terraform.io/hashicorp/template/2.2.0/darwin_arm64/terraform-provider-template_v2.2.0_x5
-
-#       mkdir -p  ~/.terraform.d/plugins/registry.terraform.io/paloaltonetworks/prismacloud/1.1.10/darwin_arm64
-#       cp  $CUSTOM_BINARIES_FOLDER/terraform-providers/terraform-provider-prismacloud/1.1.10/terraform-provider-prismacloud_v1.1.10 \
-#           ~/.terraform.d/plugins/registry.terraform.io/paloaltonetworks/prismacloud/1.1.10/darwin_arm64/terraform-provider-prismacloud_v1.1.10
-#       chmod +x ~/.terraform.d/plugins/registry.terraform.io/paloaltonetworks/prismacloud/1.1.10/darwin_arm64/terraform-provider-prismacloud_v1.1.10
-#     fi
-# }
-
-# function _fetch_custom_binaries(){
-#   mkdir -p $CUSTOM_BINARIES_FOLDER
-#   if [[ "$CPU_ARCH" == "arm" ]]; then
-#     echo "Moving custom binaries from iCloud Drive to .custom-binaries"
-#     echo "Press <ENTER> to continue"
-#     read
-#     cp -R /Users/per-oystein/Library/Mobile\ Documents/com\~apple\~CloudDocs/Brukermappe/Diverse/Ny\ Maskin/binaries/ $CUSTOM_BINARIES_FOLDER/
-#   fi
-# }
-
 
 homebrew
 setup_homebrew_github_token
