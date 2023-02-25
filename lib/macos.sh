@@ -108,12 +108,20 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Screen                                                                      #
 ###############################################################################
 
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 5
+# Require password immediately after sleep or screen saver begins (Settings does not seem to be picked)
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Setup active bottom-left corner to trigger screensaver
 defaults write com.apple.dock wvous-bl-corner -int 5
+
+# Setup Aerial as default screensaver (settings does not seem to be picked)
+# defaults write com.apple.screensaver moduleDict -dict moduleName Aerial path ~/Library/Screen\ Savers/Aerial.saver/ type 0
+# defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName Aerial path ~/Library/Screen\ Savers/Aerial.saver/ type 0
+
+# Activate screen saver after 2 min idle time (settings does not seem to be presistent)
+# defaults write com.apple.screensaver idleTime -int 120
+# defaults -currentHost write com.apple.screensaver idleTime -int 120
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "~/Desktop/Screenshots"
