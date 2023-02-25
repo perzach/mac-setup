@@ -224,7 +224,7 @@ configure_github(){
 
 setup_zsh_profile(){
     step "Setup zsh profile"
-
+	open /Applications/iTerm.app
     cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
 
 	finish
