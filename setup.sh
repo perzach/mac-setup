@@ -285,7 +285,7 @@ setup_tfenv() {
 
 
 setup_visual_studio() {
-	local settingsFile="$HOME/Library/Application Support/Code/User/settings.json"
+	local settingsFile="$HOME/Library/Application\ Support/Code/User/settings.json"
 	
 	# File does not exist or is empty
 	if [[ ! -s ${settingsFile} ]]; then 
