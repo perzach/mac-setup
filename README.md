@@ -5,7 +5,7 @@ Based on [Erlend's setup](https://github.com/ErlendF/mac-setup.git)
 ## Set up eveything
 1. Install oh-my-zsh:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 2. Run setup script:
