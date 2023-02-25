@@ -112,6 +112,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 5
 
+# Setup active bottom-left corner to trigger screensaver
+defaults write com.apple.dock wvous-bl-corner -int 5
+
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "~/Desktop/Screenshots"
 
