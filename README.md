@@ -16,3 +16,8 @@ git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 
 3. Update default profile in iTerm2
 * Iterm2 - Settings -> Profiles -> Select "My Profile" and make it the default one
+
+## Checklist afterwards
+- Login to Apps (AppleId, Chrome, Spotify)
+- Install Aerial screensaver
+- Install mandatory tools from AppStore (PasteBot, Caffeinated, etc)
