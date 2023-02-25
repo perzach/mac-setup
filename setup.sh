@@ -210,17 +210,13 @@ configure_github(){
 }
 
 
-# set_zsh_profile(){
-#     step "Set zsh profile"
+setup_zsh_profile(){
+    step "Setup zsh profile"
 
-#     cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
+    cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
 
-#     printf "Remove: \n- ⌥←\n- ⌥→\n- ⌘←\n- ⌘←\n- ⌘←Delete\n- ⌥←Delete\nIn:\n"
-# 	printf " - Iterm2 > Preferences > Keys > Key Bindings"
-#     printf " - Iterm2 > Preferences > Keys > Profiles > Default > Keys"
-#     pause
-# 	finish
-# }
+	finish
+}
 
 setup_nvm() {
     step "Set up nvm"
@@ -322,7 +318,7 @@ install_zsh_plugins
 install_fonts
 dotfiles
 configure_github
-#set_zsh_profile
+setup_zsh_profile
 setup_nvm
 setup_jenv
 setup_tfenv
