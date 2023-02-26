@@ -9,11 +9,11 @@ pause(){
 	echo
 }
 
-homebrew(){
+install_homebrew(){
 	step "Checking Homebrew"
 	if [[ ! -f "/opt/homebrew/bin/brew" ]]
 	then
-		step "Installing..."
+		step "Installing Homebrew..."
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 		export PATH=${HOME}/bin:/opt/homebrew/bin:${PATH}
 	fi
@@ -56,7 +56,7 @@ setup_homebrew_github_token(){
 
 }
 
-brew_bundle(){
+install_brew_bundle(){
 	step "Installing Homebrew bundle"
 	
 	brew update # Make sure we have pulled the latest index files from the taps
@@ -89,13 +89,6 @@ install_app_store_tools() {
 
 	step "Installing PasteBot"
 	mas install 1179623856
-
-	finish
-}
-
-config_macos(){
-	step "Tweaking macOS config settings (may take a while)"
-	"$MAC_SETUP_DIR/lib/macos.sh"
 
 	finish
 }
@@ -166,7 +159,7 @@ install_fonts() {
 	finish
 }
 
-dotfiles(){
+setup_dotfiles(){
 	step "Backing up existing dot files"
 	mkdir -p $MAC_SETUP_DIR/backup
 	cp -ivL ~/.gitconfig $MAC_SETUP_DIR/backup/.gitconfig.old
@@ -186,7 +179,7 @@ dotfiles(){
 }
 
 
-configure_github(){
+setup_github(){
 	step "Configuring github"
 
 	step "Setting up git email"
@@ -274,19 +267,26 @@ setup_tfenv() {
 	finish
 }
 
-homebrew
+setup_macos_config(){
+	step "Tweaking macOS config settings (may take a while)"
+	"$MAC_SETUP_DIR/lib/macos.sh"
+
+	finish
+}
+
+install_homebrew
 setup_homebrew_github_token
-brew_bundle
+install_brew_bundle
 install_global_npm_tools
 install_app_store_tools
 install_zsh
-config_macos
 install_zsh_plugins
 install_fonts
-dotfiles
-configure_github
+setup_dotfiles
+setup_github
 setup_zsh_profile
 setup_nvm
 setup_jenv
 setup_tfenv
+setup_macos_config
 zsh
