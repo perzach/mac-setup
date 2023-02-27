@@ -18,6 +18,6 @@ git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 * Iterm2 - Settings -> Profiles -> Select "My Profile" and make it the default one
 
 ## Checklist afterwards
-- Login to Apps (AppleId, Chrome, Spotify, VS Code)
+- Login to Apps (AppleId, Dashlane, Chrome, Spotify, VS Code)
 - Change screensaver (Including idleTime and password prompt settings)
 - Check github access (SSH access might need some tweaks)

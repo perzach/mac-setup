@@ -82,13 +82,31 @@ install_global_npm_tools() {
 
 install_app_store_tools() {
 	step "Installing AppStore tools"
-	message "You may be asked to login with your AppleId"
+	message "You may be asked to login with your AppleID"
 
 	step "Installing Caffeinated"
 	mas install 1362171212
 
 	step "Installing PasteBot"
 	mas install 1179623856
+
+	step "Installing Magnet"
+	mas install 441258766
+
+	step "Installing Dashlane"
+	mas install 517914548
+
+	step "Installing HotspotShield VPN"
+	mas install 771076721
+
+	step "Installing Numbers"
+	mas install 409203825
+
+	step "Installing Pages"
+	mas install 409201541
+
+	step "Installing Keynote"
+	mas install 409183694
 
 	finish
 }
