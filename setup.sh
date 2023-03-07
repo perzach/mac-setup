@@ -266,8 +266,10 @@ setup_jenv() {
 
 	asdf install java corretto-8.362.08.1
 	asdf install java corretto-11.0.17.8.1
+	asdf install java corretto-17.0.5.8.1
 
 	arch
+	jenv add $HOME/.asdf/installs/java/corretto-17.0.5.8.1/
 	jenv add $HOME/.asdf/installs/java/corretto-11.0.17.8.1/
 	jenv add $HOME/.asdf/installs/java/corretto-8.362.08.1/
 
