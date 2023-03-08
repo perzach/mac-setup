@@ -1,9 +1,11 @@
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
+################################################################################################
+## These are settings that have been used in the past that may be referenced later
+##
+## This file is symlinked, so changes here will automatically be applied to your zsh setup. Also,
+## when you commit changes here, they will be reflected on your other laptops when they pull the
+## latest. If you need to add stuff that should not be applied to all your laptops, please put
+## those settings in the local file '~/.zshrc.local' which will not be synched to other machines.
+################################################################################################
 
 # export PATH=/opt/homebrew/bin:$PATH -- already included in default?
 # export PATH=~/bin:$PATH -- already included in default?

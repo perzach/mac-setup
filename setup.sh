@@ -183,13 +183,13 @@ setup_dotfiles(){
 	cp -ivL ~/.gitconfig $MAC_SETUP_DIR/backup/.gitconfig.old
 	cp -ivL ~/.p10k.zsh $MAC_SETUP_DIR/backup/.p10k.zsh.old
 	cp -ivL ~/.zshrc $MAC_SETUP_DIR/backup/.zshrc.old
-	cp -ivL ~/.zshlocal $MAC_SETUP_DIR/backup/.zshlocal.old
+	cp -ivL ~/.zshrc.extra $MAC_SETUP_DIR/backup/.zshrc.extra.old
 
 	step "Adding symlinks to dot files"
 	cp -ivL $MAC_SETUP_DIR/lib/dotfiles/.gitconfig ~/.gitconfig
 	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.p10k.zsh ~/.p10k.zsh
 	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshrc ~/.zshrc
-	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshlocal ~/.zshlocal
+	ln -sfnv $MAC_SETUP_DIR/lib/dotfiles/.zshrc.extra ~/.zshrc.extra
 
 	step "Remove backups with 'rm -ir $MAC_SETUP_DIR/backup.*.old'"
 

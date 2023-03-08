@@ -1,3 +1,10 @@
+##################################################################################################
+## This file is symlinked, so changes here will automatically be applied to your zsh setup. Also,
+## when you commit changes here, they will be reflected on your other laptops when they pull the
+## latest. If you need to add stuff that should not be applied to all your laptops, please put
+## those settings in the local file '~/.zshrc.local' which will not be synched to other machines.
+##################################################################################################
+
 export PATH=${HOME}/bin:/opt/homebrew/bin:${PATH}
 eval $(shellclear --init-shell)
 
@@ -141,12 +148,20 @@ alias java8="jenv global corretto64-1.8.0.362"
 alias java11="jenv global corretto64-11.0.17"
 alias java17="jenv global corretto64-17.0.5"
 
+# JENV setup
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# NVM setup
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 ##
 # Extra Settings
 ##
 [[ -f ~/.zshrc.user ]] && source ~/.zshrc.user
-[[ -f ~/.zshlocal ]] && source ~/.zshlocal
-[[ -f ~/.zshenv ]] && source ~/.zshenv
+[[ -f ~/.zshrc.extra ]] && source ~/.zshrc.extra
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # Load fzf customizations if they exist
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
