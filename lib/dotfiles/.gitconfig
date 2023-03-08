@@ -34,7 +34,7 @@
   followTags = true
 
 [core]
-  editor        = nano
+  editor        = vi
   excludesfile  = ~/.gitignore
 
 [pull]
