@@ -214,7 +214,7 @@ setup_github(){
 
 		printf "Insert identifier for ssh key: "
 		read ssh_identifier
-		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/id_ecdsa
+		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/id_ecdsa -C "$ssh_identifier"
 		cat ~/.ssh/id_ecdsa.pub | pbcopy
         step "Copied public key, paste it to GitHub"
         open https://github.com/settings/keys
