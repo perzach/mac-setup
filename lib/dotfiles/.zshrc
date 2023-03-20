@@ -99,7 +99,6 @@ plugins=(
   copypath
   fast-syntax-highlighting
   fzf
-  git
   kubectl
   ssh-agent
   terraform
