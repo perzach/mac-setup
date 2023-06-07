@@ -143,7 +143,7 @@ alias python=python3
 alias pip=pip3
 alias awswho="aws --region eu-north-1 sts get-caller-identity | cat"
 alias myip="curl ipv4.icanhazip.com"
-alias java8="jenv global corretto64-1.8.0.362"
+alias java8="jenv global corretto64-1.8.0.372"
 alias java11="jenv global corretto64-11.0.17"
 alias java17="jenv global corretto64-17.0.5"
 
