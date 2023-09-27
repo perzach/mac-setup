@@ -8,4 +8,4 @@
 # Optional parameters:
 # @raycast.icon 🔒
 
-/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine
+open -a ScreenSaverEngine.app
