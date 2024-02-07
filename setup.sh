@@ -96,6 +96,9 @@ install_app_store_tools() {
 	step "Installing Dashlane"
 	mas install 517914548
 
+	step "Installing Xnip"
+	mas install 1221250572
+
 	step "Installing HotspotShield VPN"
 	mas install 771076721
 
