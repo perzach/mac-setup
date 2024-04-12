@@ -72,7 +72,7 @@ install_brew_bundle(){
 }
 
 install_global_npm_tools() {
-    step "Installing non-brew default tools"
+	step "Installing non-brew default tools"
     
 	step "Installing kinesis-console-consumer"
 	npm install -g kinesis-console-consumer
@@ -237,15 +237,16 @@ setup_github(){
 
 
 setup_zsh_profile(){
-    step "Setup zsh profile"
+	step "Setup zsh profile"
+	
 	open /Applications/iTerm.app
-    cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
+	cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
 
 	finish
 }
 
 setup_nvm() {
-    step "Set up nvm"
+	step "Set up nvm"
 
 	brew uninstall --ignore-dependencies node
 	brew uninstall --force node
@@ -259,7 +260,7 @@ setup_nvm() {
 }
 
 setup_jenv() {
-    step "Set up jenv"
+	step "Set up jenv"
 
 	eval "$(jenv init -)"
 	asdf plugin-add java 2>/dev/null
@@ -281,7 +282,7 @@ setup_jenv() {
 
 
 setup_tfenv() {
-    step "Set up tfenv"
+	step "Set up tfenv"
   
 	tfenv install 1.1.4
 	tfenv install 1.0.11
