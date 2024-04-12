@@ -22,6 +22,4 @@ open -na "Google Chrome" --args --new-window \
 "https://www.tek.no/" \
 "https://hckrnews.com/" \
 "https://www.nrk.no/" \
-"https://www.dn.no/" \
-"https://bt.no/" \
-"https://dnb.workplace.com/" 
+"https://bt.no/"
