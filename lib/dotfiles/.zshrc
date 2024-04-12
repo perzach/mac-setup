@@ -143,13 +143,14 @@ alias python=python3
 alias pip=pip3
 alias awswho="aws --region eu-north-1 sts get-caller-identity | cat"
 alias myip="curl ipv4.icanhazip.com"
-alias java8="jenv global corretto64-1.8.0.372"
-alias java11="jenv global corretto64-11.0.17"
-alias java17="jenv global corretto64-17.0.5"
+alias java8="sdk default java 8.0.402-amzn"
+alias java11="sdk default java 11.0.22-amzn"
+alias java17="sdk default java 17.0.10-amzn"
+alias java21="sdk default java 21.0.2-amzn"
 
-# JENV setup
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# SDKMAN setup
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 # NVM setup
 export NVM_DIR=~/.nvm

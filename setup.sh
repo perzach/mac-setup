@@ -259,23 +259,18 @@ setup_nvm() {
 	finish
 }
 
-setup_jenv() {
-	step "Set up jenv"
+setup_sdkman_java() {
+	step "Set up sdkman java"
 
-	eval "$(jenv init -)"
-	asdf plugin-add java 2>/dev/null
+	export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+	[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
-	jenv enable-plugin maven
-	jenv enable-plugin gradle
+	sdk install java 21.0.2-amzn
+	sdk install java 17.0.10-amzn
+	sdk install java 11.0.22-amzn
+	sdk install java 8.0.402-amzn
 
-	asdf install java corretto-8.372.07.1
-	asdf install java corretto-11.0.17.8.1
-	asdf install java corretto-17.0.5.8.1
-
-	arch
-	jenv add $HOME/.asdf/installs/java/corretto-17.0.5.8.1/
-	jenv add $HOME/.asdf/installs/java/corretto-11.0.17.8.1/
-	jenv add $HOME/.asdf/installs/java/corretto-8.372.07.1/
+	sdk default java 21.0.2-amzn
 
 	finish
 }
@@ -310,7 +305,7 @@ setup_dotfiles
 setup_github
 setup_zsh_profile
 setup_nvm
-setup_jenv
+setup_sdkman_java
 setup_tfenv
 setup_macos_config
 zsh
