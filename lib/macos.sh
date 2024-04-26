@@ -112,9 +112,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # defaults write com.apple.screensaver askForPassword -int 1
 # defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Setup active bottom-left corner to trigger screensaver
-defaults write com.apple.dock wvous-bl-corner -int 5
-
 # Setup Aerial as default screensaver (settings does not seem to be picked)
 # defaults write com.apple.screensaver moduleDict -dict moduleName Aerial path ~/Library/Screen\ Savers/Aerial.saver/ type 0
 # defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName Aerial path ~/Library/Screen\ Savers/Aerial.saver/ type 0
@@ -318,8 +315,8 @@ defaults write com.apple.dock showhidden -bool true
 # Top right screen corner → Desktop
 # defaults write com.apple.dock wvous-tr-corner -int 4
 # defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Put display to sleep
-# defaults write com.apple.dock wvous-bl-corner -int 0
+# Bottom left screen corner → Start screen saver
+defaults write com.apple.dock wvous-bl-corner -int 5
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
@@ -606,6 +603,30 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 
 # Make the title bar transparent (we get the colorscheme background colour)
 defaults write org.vim.MacVim MMTitlebarAppearsTransparent true
+
+###############################################################################
+# Keyboard hotkeys                                                            #
+###############################################################################
+
+# Disable spotlight search
+/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
+  -c "Delete :AppleSymbolicHotKeys:64" \
+  -c "Add :AppleSymbolicHotKeys:64:enabled bool false" \
+  -c "Add :AppleSymbolicHotKeys:64:value:parameters array" \
+  -c "Add :AppleSymbolicHotKeys:64:value:parameters: integer 65535" \
+  -c "Add :AppleSymbolicHotKeys:64:value:parameters: integer 49" \
+  -c "Add :AppleSymbolicHotKeys:64:value:parameters: integer 1048576" \
+  -c "Add :AppleSymbolicHotKeys:64:type string standard"
+
+# Disable finder window search
+/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
+  -c "Delete :AppleSymbolicHotKeys:65" \
+  -c "Add :AppleSymbolicHotKeys:65:enabled bool false" \
+  -c "Add :AppleSymbolicHotKeys:65:value:parameters array" \
+  -c "Add :AppleSymbolicHotKeys:65:value:parameters: integer 65535" \
+  -c "Add :AppleSymbolicHotKeys:65:value:parameters: integer 49" \
+  -c "Add :AppleSymbolicHotKeys:65:value:parameters: integer 1572864" \
+  -c "Add :AppleSymbolicHotKeys:65:type string standard"
 
 ###############################################################################
 # Kill affected applications                                                  #
