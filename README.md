@@ -18,7 +18,7 @@ git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 * Iterm2 - Settings -> Profiles -> Select "My Profile" and make it the default one
 
 4. Import raycast settings from .rayconfig file
-* raycast - Import Settings & Data -> Select ../mac-setup/lib/dotfiles/raycast.rayconfig
+* raycast - Import Settings & Data -> Select your .rayconfig file from where you backed it up
 
 ## Checklist afterwards
 - Login to Apps (AppleId, Dashlane, Chrome, Spotify, VS Code)
