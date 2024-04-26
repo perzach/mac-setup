@@ -143,6 +143,7 @@ alias python=python3
 alias pip=pip3
 alias awswho="aws --region eu-north-1 sts get-caller-identity | cat"
 alias myip="curl ipv4.icanhazip.com"
+alias joke="curl -s https://icanhazdadjoke.com"
 alias java8="sdk default java 8.0.402-amzn"
 alias java11="sdk default java 11.0.22-amzn"
 alias java17="sdk default java 17.0.10-amzn"
