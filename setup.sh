@@ -87,12 +87,6 @@ install_app_store_tools() {
 	step "Installing Caffeinated"
 	mas install 1362171212
 
-	step "Installing PasteBot"
-	mas install 1179623856
-
-	step "Installing Magnet"
-	mas install 441258766
-
 	step "Installing Dashlane"
 	mas install 517914548
 

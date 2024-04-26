@@ -17,6 +17,9 @@ git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
 3. Update default profile in iTerm2
 * Iterm2 - Settings -> Profiles -> Select "My Profile" and make it the default one
 
+4. Import raycast settings from .rayconfig file
+* raycast - Import Settings & Data -> Select ../mac-setup/lib/dotfiles/raycast.rayconfig
+
 ## Checklist afterwards
 - Login to Apps (AppleId, Dashlane, Chrome, Spotify, VS Code)
 - Change screensaver (Including idleTime and password prompt settings)
