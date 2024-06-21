@@ -10,7 +10,7 @@
 
 open -a "Google Chrome" --args --profile-directory="Profile 1"
 open -a "Slack"
-open -a "Microsoft Teams (work or school)"
+open -a "Microsoft Teams"
 open -a "Microsoft Outlook"
 open -a "IntelliJ IDEA Ultimate"
 open -a "iTerm"
