@@ -20,6 +20,7 @@ open -a "Notes"
 sleep 5
 open -na "Google Chrome" --args --new-window \
 "https://www.tek.no/" \
-"https://hckrnews.com/" \
 "https://www.nrk.no/" \
+"https://www.tv2.no/" \
+"https://www.e24.no/" \
 "https://bt.no/"
