@@ -237,7 +237,9 @@ setup_nvm() {
 	export NVM_DIR=~/.nvm
 	source $(brew --prefix nvm)/nvm.sh
 	nvm install 16
-	nvm use 16
+ 	nvm install 18
+  	nvm install 22
+	nvm use 22
 
 	finish
 }
@@ -262,9 +264,8 @@ setup_sdkman_java() {
 setup_tfenv() {
 	step "Set up tfenv"
   
-	tfenv install 1.1.4
-	tfenv install 1.0.11
-	tfenv use 1.1.4
+	tfenv install 1.12.2
+	tfenv use 1.12.2
 
 	finish
 }
