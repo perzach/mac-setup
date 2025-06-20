@@ -261,7 +261,27 @@ defaults write com.apple.dock tilesize -int 56
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
-#defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-apps -array
+
+## Add application icons
+declare -a icons=(
+  "/Applications/Google Chrome"
+  "/System/Applications/Messages"
+  "/System/Applications/Photos"
+  "/Users/per-oystein/Applications/IntelliJ IDEA Ultimate"
+  "/Applications/Visual Studio Code"
+  "/Applications/Slack"
+  "/Applications/iTerm"
+  "/Applications/Spotify"
+  "/System/Applications/System Settings"
+  )
+for icon in "${icons[@]}"; do
+    if [ -d "${icon}.app" ]; then
+        if ! defaults read com.apple.dock | grep "${icon}"; then
+            defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>${icon}.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+        fi
+    fi
+done
 
 # Show only open applications in the Dock
 # defaults write com.apple.dock static-only -bool true
