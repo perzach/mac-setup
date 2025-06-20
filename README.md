@@ -3,21 +3,18 @@
 Based on [Erlend's setup](https://github.com/ErlendF/mac-setup.git)
 
 ## Set up eveything
-1. Install oh-my-zsh:
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
+1. Run setup script:
 
-2. Run setup script:
-```
-git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
-~/workspace/mac-setup/setup.sh
-```
+    *Note: you might need to restart the setup script after oh-my-zsh is installed.
+    ```
+    git clone https://github.com/Perzach/mac-setup.git ~/workspace/mac-setup
+    ~/workspace/mac-setup/setup.sh
+    ```
 
-3. Update default profile in iTerm2
+2. Update default profile in iTerm2
 * Iterm2 - Settings -> Profiles -> Select "My Profile" and make it the default one
 
-4. Import raycast settings from .rayconfig file
+3. Import raycast settings from .rayconfig file
 * raycast - Import Settings & Data -> Select your .rayconfig file from where you backed it up
 
 ## Checklist afterwards

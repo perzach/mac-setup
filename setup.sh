@@ -60,7 +60,7 @@ install_brew_bundle(){
 	step "Installing Homebrew bundle"
 	
 	brew update # Make sure we have pulled the latest index files from the taps
-	brew bundle -v --no-lock --file="$MAC_SETUP_DIR/Brewfile"
+	brew bundle -v --file="$MAC_SETUP_DIR/Brewfile"
 
 	# Install session manager plugin separatly due to
 	# https://github.com/Homebrew/homebrew-cask/issues/90637
@@ -223,6 +223,10 @@ setup_zsh_profile(){
 	step "Setup zsh profile"
 	
 	open /Applications/iTerm.app
+
+	message "Initiated iTerm to be opened, please confirm application startup"
+	pause
+
 	cp $MAC_SETUP_DIR/iterm2/Profiles.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
 
 	finish

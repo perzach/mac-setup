@@ -1,5 +1,3 @@
-tap "homebrew/cask-drivers"
-tap "rusty-ferris-club/tap"
 tap "sergiomss/homebrew-tap"
 tap "sdkman/tap"
 
@@ -32,14 +30,14 @@ brew "k9s"
 brew "kubectl"
 brew "mas"
 brew "sdkman-cli"
+brew "podman"
 
-brew "rusty-ferris-club/tap/shellclear"
 brew "sergiomss/tap/ks"
 
 # Casks
 cask "jetbrains-toolbox"
 cask "slack"
-cask "docker"
+cask "podman-desktop"
 cask "google-chrome"
 cask "postman"
 cask "visual-studio-code"
@@ -52,3 +50,4 @@ cask "steam"
 cask "raycast"
 cask "prusaslicer"
 cask "openscad"
+cask "autodesk-fusion"
