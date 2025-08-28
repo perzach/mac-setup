@@ -31,6 +31,7 @@ brew "kubectl"
 brew "mas"
 brew "sdkman-cli"
 brew "podman"
+brew "gemini-cli"
 
 brew "sergiomss/tap/ks"
 
